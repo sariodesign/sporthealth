@@ -1,0 +1,13 @@
+.c-navigation {
+  &__contact {
+    background-color: $primary-blue;
+  }
+
+  &__item {
+    margin-right: 8px;
+  }
+
+  &__link {
+    color: $primary-blue--light;
+  }
+}
