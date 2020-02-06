@@ -21,14 +21,17 @@
         </a>
       </div>
     </div>
+    <MainCategories />
   </div>
 </template>
 
 <script>
+import MainCategories from '~/components/MainCategories.vue'
 import Logo from '~/components/Logo.vue'
 
 export default {
   components: {
+    MainCategories,
     Logo
   }
 }
