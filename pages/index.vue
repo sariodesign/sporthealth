@@ -1,6 +1,16 @@
 <template>
   <div>
     <Navigation />
-    <h1>sporthealth</h1>
+    <MainCategories />
   </div>
 </template>
+
+<script>
+import MainCategories from '~/components/MainCategories.vue'
+
+export default {
+  components: {
+    MainCategories
+  }
+}
+</script>
