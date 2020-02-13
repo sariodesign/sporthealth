@@ -3,7 +3,7 @@
         <li>
           <nuxt-link class="c-navigation__link" to="/">Home</nuxt-link>
         </li>
-        <li v-for="item in items">
+        <li v-for="item in items" :key="item.id">
             <nuxt-link class="c-navigation__link" :to=item.link>
                 {{item.page}}
             </nuxt-link>
