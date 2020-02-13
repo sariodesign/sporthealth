@@ -1,0 +1,38 @@
+.c-navigation {
+  background-color: $primary-blue;
+
+  &__contact {
+    padding: 8px 0;
+
+    @include media-query("desktop") {
+      margin: 0 auto;
+      width: 1130px;
+    }
+  }
+
+  &__item {
+    margin-right: 24px;
+  }
+
+  &__link {
+    color: $primary-blue--light;
+
+    .c-navigation--primary & {
+      color: $primary-blue;
+      font-size: 1.125rem;
+    }
+  }
+
+  &--primary {
+    background-color: $color-white;
+    border-bottom: 2px solid $primary-blue;
+    padding: 16px 0;
+  }
+
+  &__menu {
+    @include media-query("desktop") {
+      margin: 0 auto;
+      width: 1130px;
+    }
+  }
+}
