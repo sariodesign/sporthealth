@@ -1,0 +1,58 @@
+.o-button {
+  border: 1px solid $primary-blue;
+  border-radius: 2px;
+  line-height: 1;
+  padding: 8px 12px;
+}
+
+.o-button--primary {
+
+}
+
+.o-button--secondary {
+  -webkit-backface-visibility: hidden;
+  border: 0;
+  overflow: hidden;
+  height: 40px;
+  position: relative;
+  width: 150px;
+  
+  &:before {
+    background-color: $primary-blue;
+    color: $primary-blue--light;
+    content: attr(data-label);
+    display: block;
+    left: 0;
+    line-height: 40px;
+    height: 100%;
+    position: absolute;
+    transition: transform .25s linear;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+
+  &:after {
+    background-color: $primary-blue;
+    color: $primary-blue--light;
+    content: '\2192';
+    display: block;
+    left: 0;
+    font-size: 3rem;
+    line-height: 32px;
+    height: 100%;
+    position: absolute;
+    top: 100%;
+    transition: transform .25s linear;
+    width: 100%;
+    z-index: 2;
+  }
+
+  &:hover:before {
+    transform: translateY(-100%);
+  }
+
+  &:hover:after {
+    transform: translateY(-100%);
+  }
+}

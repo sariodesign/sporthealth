@@ -1,0 +1,70 @@
+.c-categories {
+  
+  .c-categories__group {
+    background: $primary-blue--light;
+
+    @include media-query(laptop) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__item {
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex: 1;
+    padding: 16px 0;
+    position: relative;
+
+    @include media-query(laptop) {
+      height: 329px;
+      overflow: hidden;
+
+      &:nth-child(1) {background-image: url('/fisioterapia.jpg')}
+      &:nth-child(2) {background-image: url('/idrokinesiterapia.jpg')}
+      &:nth-child(3) {background-image: url('/riatletizzazione.jpg')}
+      &:nth-child(4) {background-image: url('/neuromotoria.jpg')}
+      &:nth-child(5) {background-image: url('/fisioterapia.jpg')}
+    }
+
+    &:before {
+      background: linear-gradient(0deg, rgba(21,51,78,1) 25%, rgba(21,51,78,1) 65%, rgba(255,255,255,0) 100%);
+      content: '';
+      height: 100%;
+      left: 0;
+      opacity: .35;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+
+    .o-heading {
+      color: $primary-blue--light;
+      font-size: 1.5rem;
+    }
+
+    .o-text {
+      color: $primary-blue--light;
+    }
+    
+  }
+
+  &__content {
+    @include media-query(laptop) {
+      align-self: flex-end;
+      display: flex;
+      flex-direction: column;
+      height: 50%;
+      justify-content: space-between;
+      padding: 0 16px;
+      width: 100%;
+      z-index: 2;
+
+      a {
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  }
+}
