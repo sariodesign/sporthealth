@@ -4,9 +4,9 @@
     <div class="c-categories__group">
       <div v-for="category in categories" :key="category.id" class="c-categories__item">
         <div class="c-categories__content">
-          <div class="c-categories">
-            <h2 class="o-heading font-bold leading-none mb-1 text-center">{{category.name}}</h2>
-            <p class="o-text text-center leading-tight mb-1">{{category.text}}</p>
+          <div class="c-categories__text">
+            <h2 class="o-heading font-bold leading-none mb-1">{{category.name}}</h2>
+            <p class="o-text leading-tight mb-1">{{category.text}}</p>
           </div>
           <nuxt-link class="c-navigation__link" :to=category.link>
             <button class="o-button o-button--secondary" data-label="Scopri di più"></button>
