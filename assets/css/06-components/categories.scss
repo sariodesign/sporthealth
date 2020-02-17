@@ -18,6 +18,7 @@
     position: relative;
 
     @include media-query(laptop) {
+      border-right: 1px solid $primary-blue;
       height: 329px;
       overflow: hidden;
       padding: 16px 0;
@@ -56,6 +57,9 @@
       }
     }
     
+    &:last-child {
+      border: 0;
+    }
   }
 
   &__content {    
@@ -71,7 +75,7 @@
     }
     
     @include media-query(laptop) {
-      align-self: flex-end;
+      align-self: center;
       flex-direction: column;      
       height: 60%;
       justify-content: space-between;
