@@ -1,6 +1,6 @@
 .o-button {
   border: 1px solid $primary-blue;
-  border-radius: 2px;
+  border-radius: 4px;
   line-height: 1;
   padding: 8px 12px;
 }
@@ -37,22 +37,22 @@
     color: $primary-blue--light;
     content: '\2192';
     display: block;
-    left: 0;
+    right: -100%;
     font-size: 3rem;
     line-height: 32px;
     height: 100%;
     position: absolute;
-    top: 100%;
+    top: 0;
     transition: transform .25s linear;
     width: 100%;
     z-index: 2;
   }
 
   &:hover:before {
-    transform: translateY(-100%);
+    transform: translateX(-100%);
   }
 
   &:hover:after {
-    transform: translateY(-100%);
+    transform: translateX(-100%);
   }
 }
