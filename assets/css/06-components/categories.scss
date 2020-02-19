@@ -1,0 +1,99 @@
+.c-categories {
+  
+  .c-categories__group {
+    background: $primary-blue--light;
+
+    @include media-query(laptop) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__item {
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex: 1;
+    padding: 32px 16px;
+    position: relative;
+
+    @include media-query(laptop) {
+      border-right: 1px solid $primary-blue;
+      height: 329px;
+      overflow: hidden;
+      padding: 16px 0;
+
+      &:nth-child(1) {background-image: url('/fisioterapia.jpg')}
+      &:nth-child(2) {background-image: url('/idrokinesiterapia.jpg')}
+      &:nth-child(3) {background-image: url('/riatletizzazione.jpg')}
+      &:nth-child(4) {background-image: url('/neuromotoria.jpg')}
+      &:nth-child(5) {background-image: url('/fisioterapia.jpg')}
+
+      &:before {
+        background: linear-gradient(0deg, rgba(21,51,78,1) 25%, rgba(21,51,78,1) 65%, rgba(255,255,255,0) 100%);
+        content: '';
+        height: 100%;
+        left: 0;
+        opacity: .35;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+    }    
+
+    .o-heading {
+      font-size: 1.5rem;
+      
+      @include media-query(laptop) {
+        color: $primary-blue--light;
+        text-align: center;
+      }
+    }
+
+    .o-text {
+      @include media-query(laptop) {
+        color: $primary-blue--light;
+        text-align: center;
+      }
+    }
+    
+    &:last-child {
+      border: 0;
+    }
+  }
+
+  &__content {    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+
+    @include media-query(tablet){
+      align-items: center;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    
+    @include media-query(laptop) {
+      align-self: center;
+      flex-direction: column;      
+      height: 60%;
+      justify-content: space-between;
+      padding: 0 16px;
+      z-index: 2;
+
+      a {
+        display: block;
+        margin: 0 auto;
+      }
+    }
+    
+    @include media-query(desktop) {
+      height: 50%;
+    }
+  }
+
+  &__text {
+    margin-bottom: 16px;
+  }
+}
