@@ -1,0 +1,21 @@
+.c-methods {
+  margin: 0 auto;
+  max-width: 980px;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    padding: 0 16px;
+
+    @include media-query(laptop) {
+      flex-direction: row;
+    }
+
+  }
+
+  &__text {
+    @include media-query(laptop) {
+      padding-top: 48px;
+    }
+  }
+}
