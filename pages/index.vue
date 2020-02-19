@@ -1,6 +1,15 @@
 <template>
   <div>
     <Navigation />
-    <h1>sporthealth</h1>
+    <Methods />
   </div>
 </template>
+<script>
+  import Methods from '~/components/Methods.vue'
+    
+  export default {
+    components: {
+      Methods
+    }
+  }
+</script>
