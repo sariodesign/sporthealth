@@ -1,5 +1,5 @@
 <template>
-  <nav class="c-navigation flex flex-col">
+  <nav class="c-navigation flex">
     <ul class="c-navigation__contact flex justify-end">
       <li class="c-navigation__item">
         <nuxt-link class="c-navigation__link" to="/chi-siamo"

@@ -1,11 +1,18 @@
 .c-navigation {
-  background-color: $primary-blue;
+    flex-direction: column-reverse;
+
+  @include media-query("desktop"){
+    background-color: $primary-blue;
+    flex-direction: column;
+  }
 
   &__contact {
-    padding: 8px 0;
-
+    flex-direction: column;
+    
     @include media-query("desktop") {
+      flex-direction: row;
       margin: 0 auto;
+      padding: 8px 0;
       width: 1130px;
     }
   }
@@ -15,24 +22,42 @@
   }
 
   &__link {
-    color: $primary-blue--light;
+    color: $primary-blue;
+    font-size: 1.125rem;
+    
+    @include media-query("desktop"){
+      color: $primary-blue--light;
+      font-size: 1rem;
+    }
 
     .c-navigation--primary & {
       color: $primary-blue;
-      font-size: 1.125rem;
     }
   }
 
   &--primary {
-    background-color: $color-white;
-    border-bottom: 2px solid $primary-blue;
-    padding: 16px 0;
+    
+    
+    @include media-query("desktop"){
+      background-color: $color-white;
+      border-bottom: 2px solid $primary-blue;
+      padding: 16px 0;
+    }
   }
 
   &__menu {
+    flex-direction: column;
+
     @include media-query("desktop") {
+      flex-direction: row;
       margin: 0 auto;
       width: 1130px;
+    }
+
+    li:first-child {
+      @include media-query('desktop', 'max-width'){
+        display: none;
+      }
     }
   }
 }

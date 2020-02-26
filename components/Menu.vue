@@ -1,7 +1,9 @@
 <template>
     <ul class="c-navigation__menu flex justify-between">
         <li>
-          <nuxt-link class="c-navigation__link" to="/">Home</nuxt-link>
+          <nuxt-link class="c-navigation__link" to="/">
+            <img src="logo-sporthealth-menu.png"/>
+          </nuxt-link>
         </li>
         <li v-for="item in items" :key="item.id">
             <nuxt-link class="c-navigation__link" :to=item.link>
