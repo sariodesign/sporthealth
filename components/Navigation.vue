@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="c-navigation__toggle" :class="{'is-opacity' : opacityToggle}" @click="openMenu()">
+    <div class="c-navigation__toggle" :class="{'is-active' : isActive}" @click="openMenu()">
       <div class="c-navigation__toggle-line"></div>
     </div>
     <nav class="c-navigation flex" :class="{'is-open' : isOpen }">
@@ -33,7 +33,7 @@ export default {
   data () {
     return {
       isOpen: false,
-      opacityToggle: false
+      isActive: false
     }
   },
   components: {
@@ -42,6 +42,7 @@ export default {
   methods: {
     openMenu: function() {
       this.isOpen = !this.isOpen
+      this.isActive = !this.isActive
     }
   }
 }

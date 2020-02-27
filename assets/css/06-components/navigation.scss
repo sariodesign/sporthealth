@@ -6,10 +6,10 @@
     left: 0;
     justify-content: flex-end;
     min-height: 100vh;
-    padding: 64px 0 0 16px;
+    padding: 64px 0 0 0;
     position: absolute;
     top: 0;
-    transition: all .3s ease-in-out;
+    transition: all .35s ease-in-out;
     transform: translateX(-100%);
     width: 85%;
     z-index: 3;
@@ -39,7 +39,7 @@
     margin-right: 24px;
 
     @include media-query('desktop', 'max-width'){
-      padding: 8px 0;
+      padding: 8px 0 0 16px;
     }
 
     .c-navigation--primary & {
@@ -82,13 +82,20 @@
       &--active:after {
         background-color: $primary-blue;
         content: '';
-        height: 2px;
+        height: 100%;
         left: 0;
         position: absolute;
-        top: 100%;
-        transform: translateY(-2px);
+        top: 8px;
         transition: all .275s ease-in-out;
-        width: 100%;
+        width: 4px;
+
+        @include media-query("desktop") {
+          height: 2px;
+          left: 0;
+          top: 100%;
+          transform: translateY(-2px);
+          width: 100%;
+        }
       }
     }
   }
@@ -112,7 +119,7 @@
       width: 1130px;
     }
 
-    li:first-child {
+    > li:first-child {
       @include media-query('desktop', 'max-width'){
         display: none;
       }
@@ -123,6 +130,7 @@
     align-items: center;
     background-color: $primary-blue;
     border-radius: 4px;
+    cursor: pointer;
     display: flex;
     right: 16px;
     height: 48px;
@@ -142,7 +150,12 @@
     background-color: $primary-blue--light;
     position:relative;
     height: 4px;
+    transition: background-color .15s ease-in-out;
     width: 36px;
+
+    .is-active & {
+      background-color: $primary-blue;
+    }
 
     &:before,
     &:after {
@@ -152,11 +165,61 @@
       left: 0;
       position: absolute;
       top: -10px;
+      transition: transform .2s ease-in-out, top .15s ease-in-out .2s;
       width: 100%;
+
+      .is-active & {
+        top: 0;
+        transform: rotate(-45deg);
+        transition: top .15s linear, transform .2s ease-in-out .15s;
+      }
     }
 
     &:after {
       top: 10px;
+
+      .is-active & {
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  &__toggle-submenu {
+    align-items: center;
+    background-color: $primary-blue--light;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    height: 32px;
+    position: absolute;
+    right: 32px;
+    top: 0;
+    width: 32px;
+
+    &:before,
+    &:after {
+      background-color: $primary-blue;
+      content: '';
+      height: 3px;
+      position: absolute;
+      transition: opacity .15s linear, transform .2s ease-in-out .1s;
+      width: 16px;
+    }
+
+    &:after {
+      transition: transform .3s ease-in-out;
+      transform: rotate(90deg);
+    }
+
+    &.is-active {
+      &:before {
+        opacity: 0;
+        transform: rotate(-90deg);
+      }
+
+      &:after {
+        transform: rotate(0);
+      }
     }
   }
 }
