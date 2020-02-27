@@ -5,7 +5,7 @@
             <img src="logo-sporthealth-menu.png"/>
           </nuxt-link>
         </li>
-        <li v-for="item in items" :key="item.id">
+        <li class="c-navigation__item" v-for="item in items" :key="item.id">
             <nuxt-link class="c-navigation__link" :to=item.link>
                 {{item.page}}
             </nuxt-link>
@@ -33,6 +33,6 @@ export default {
           link: 'prodotti'}
       ] 
     }
-  }
+  } 
 }
 </script>
