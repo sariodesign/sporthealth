@@ -16,6 +16,10 @@ module.exports = {
     ]
   },
   /*
+  ** Customize Route
+  */
+  router: { linkActiveClass: 'c-navigation__link--active', linkExactActiveClass: '' },
+  /*
   ** Customize the progress-bar color
   */
   loading: { color: '#000' },
