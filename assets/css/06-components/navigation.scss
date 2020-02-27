@@ -1,5 +1,23 @@
 .c-navigation {
-    flex-direction: column-reverse;
+  flex-direction: column-reverse;
+
+  @include media-query('desktop', 'max-width'){
+    background-color: $color-white;
+    left: 0;
+    justify-content: flex-end;
+    min-height: 100vh;
+    padding: 64px 0 0 16px;
+    position: absolute;
+    top: 0;
+    transition: all .3s ease-in-out;
+    transform: translateX(-100%);
+    width: 85%;
+    z-index: 3;
+
+    &.is-open {
+      transform: translateX(0);
+    }
+  }
 
   @include media-query("desktop"){
     background-color: $primary-blue;
@@ -19,6 +37,34 @@
 
   &__item {
     margin-right: 24px;
+
+    @include media-query('desktop', 'max-width'){
+      padding: 8px 0;
+    }
+
+    .c-navigation--primary & {
+      margin-right: 0;
+      overflow: hidden;
+      position: relative;
+
+      &:after {
+        background-color: $primary-blue;
+        content: '';
+        height: 2px;
+        left: 0;
+        position: absolute;
+        top: 100%;
+        transform: translateY(100%);
+        transition: all .275s ease-in-out;
+        width: 100%;
+      }
+
+      &:hover:after {
+        @include media-query("desktop"){
+          transform: translateY(-2px);
+        }
+      }
+    }
   }
 
   &__link {
@@ -32,11 +78,22 @@
 
     .c-navigation--primary & {
       color: $primary-blue;
+
+      &--active:after {
+        background-color: $primary-blue;
+        content: '';
+        height: 2px;
+        left: 0;
+        position: absolute;
+        top: 100%;
+        transform: translateY(-2px);
+        transition: all .275s ease-in-out;
+        width: 100%;
+      }
     }
   }
 
-  &--primary {
-    
+  &--primary {    
     
     @include media-query("desktop"){
       background-color: $color-white;
@@ -49,6 +106,7 @@
     flex-direction: column;
 
     @include media-query("desktop") {
+      align-items: center;
       flex-direction: row;
       margin: 0 auto;
       width: 1130px;
@@ -58,6 +116,47 @@
       @include media-query('desktop', 'max-width'){
         display: none;
       }
+    }
+  }
+
+  &__toggle {
+    align-items: center;
+    background-color: $primary-blue;
+    border-radius: 4px;
+    display: flex;
+    right: 16px;
+    height: 48px;
+    justify-content: center;
+    opacity: .85;
+    position: fixed;
+    top: 16px;
+    width: 48px;
+    z-index: 4;
+
+    @include media-query("desktop"){
+      display: none;
+    }
+  }
+
+  &__toggle-line {
+    background-color: $primary-blue--light;
+    position:relative;
+    height: 4px;
+    width: 36px;
+
+    &:before,
+    &:after {
+      background-color: $primary-blue--light;
+      content:'';
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: -10px;
+      width: 100%;
+    }
+
+    &:after {
+      top: 10px;
     }
   }
 }
