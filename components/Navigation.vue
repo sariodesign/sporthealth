@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="c-navigation__toggle" :class="{'is-active' : isActive}" @click="openMenu()">
+      <span class="font-semibold mr-2 leading-none">MENU</span>
       <div class="c-navigation__toggle-line"></div>
     </div>
     <nav class="c-navigation flex" :class="{'is-open' : isOpen }">

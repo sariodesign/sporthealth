@@ -6,12 +6,12 @@
     left: 0;
     justify-content: flex-end;
     min-height: 100vh;
-    padding: 64px 0 0 0;
-    position: absolute;
+    padding: 0 0 0 0;
+    position: fixed;
     top: 0;
     transition: all .35s ease-in-out;
     transform: translateX(-100%);
-    width: 85%;
+    width: 90%;
     z-index: 3;
 
     &.is-open {
@@ -130,28 +130,34 @@
     align-items: center;
     background-color: $primary-blue;
     border-radius: 4px;
+    color: $primary-blue--light;
     cursor: pointer;
     display: flex;
-    right: 16px;
-    height: 48px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 40px;
     justify-content: center;
-    opacity: .85;
+    padding: 8px;
     position: fixed;
-    top: 16px;
-    width: 48px;
+    bottom: 16px;
+    width: auto;
     z-index: 4;
 
     @include media-query("desktop"){
       display: none;
+    }
+
+    span {
+      font-family: $primary-font--demiBold;
     }
   }
 
   &__toggle-line {
     background-color: $primary-blue--light;
     position:relative;
-    height: 4px;
+    height: 3px;
     transition: background-color .15s ease-in-out;
-    width: 36px;
+    width: 28px;
 
     .is-active & {
       background-color: $primary-blue;
@@ -164,7 +170,7 @@
       height: 100%;
       left: 0;
       position: absolute;
-      top: -10px;
+      top: -8px;
       transition: transform .2s ease-in-out, top .15s ease-in-out .2s;
       width: 100%;
 
@@ -176,7 +182,7 @@
     }
 
     &:after {
-      top: 10px;
+      top: 8px;
 
       .is-active & {
         transform: rotate(45deg);
@@ -190,11 +196,11 @@
     border-radius: 4px;
     display: flex;
     justify-content: center;
-    height: 32px;
+    height: 24px;
     position: absolute;
-    right: 32px;
-    top: 0;
-    width: 32px;
+    right: 16px;
+    top: 8px;
+    width: 24px;
 
     &:before,
     &:after {
