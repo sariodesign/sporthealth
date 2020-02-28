@@ -10,9 +10,9 @@
                 {{item.page}}
             </nuxt-link>
             <div v-if="item.submenu">
-              <div class="c-navigation__toggle-submenu" :class="{'is-active' : isExpand}" @click="openSubmenu()"></div>
+              <div class="c-navigation__toggle-submenu" :class="{'is-active' : isExpand}" v-on:click.stop="openSubmenu()"></div>
               <ul class="c-navigation__submenu" :class="{'is-expanded' : isExpand}">
-                <li class="c-navigation__subitem" v-for="subitem in item.submenu">
+                <li class="c-navigation__subitem" v-for="subitem in item.submenu" :key="subitem.id">
                   <nuxt-link class="c-navigation__link" :to=subitem.link>
                     {{subitem.page}}
                   </nuxt-link>
