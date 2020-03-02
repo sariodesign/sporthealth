@@ -67,6 +67,10 @@
     }
   }
 
+  &__subitem {
+    padding: 8px 0 0 16px;
+  }
+
   &__link {
     color: $primary-blue;
     font-size: 1.125rem;
@@ -124,6 +128,17 @@
         display: none;
       }
     }
+  }
+
+  &__submenu {
+    max-height: 0;
+    transition: all .4s ease-in-out;
+
+    &.is-expanded {
+      height: auto;
+      max-height: 300px;
+    }
+
   }
 
   &__toggle {
@@ -213,7 +228,7 @@
     }
 
     &:after {
-      transition: transform .3s ease-in-out;
+      transition: transform .35s ease-in-out;
       transform: rotate(90deg);
     }
 
