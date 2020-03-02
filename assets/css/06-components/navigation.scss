@@ -1,38 +1,246 @@
 .c-navigation {
-  background-color: $primary-blue;
+  flex-direction: column-reverse;
+
+  @include media-query('desktop', 'max-width'){
+    background-color: $color-white;
+    left: 0;
+    justify-content: flex-end;
+    min-height: 100vh;
+    padding: 0 0 0 0;
+    position: fixed;
+    top: 0;
+    transition: all .35s ease-in-out;
+    transform: translateX(-100%);
+    width: 90%;
+    z-index: 3;
+
+    &.is-open {
+      transform: translateX(0);
+    }
+  }
+
+  @include media-query("desktop"){
+    background-color: $primary-blue;
+    flex-direction: column;
+  }
 
   &__contact {
-    padding: 8px 0;
-
+    flex-direction: column;
+    
     @include media-query("desktop") {
+      flex-direction: row;
       margin: 0 auto;
+      padding: 8px 0;
       width: 1130px;
     }
   }
 
   &__item {
     margin-right: 24px;
-  }
 
-  &__link {
-    color: $primary-blue--light;
+    @include media-query('desktop', 'max-width'){
+      padding: 8px 0 0 16px;
+    }
 
     .c-navigation--primary & {
-      color: $primary-blue;
-      font-size: 1.125rem;
+      margin-right: 0;
+      overflow: hidden;
+      position: relative;
+
+      &:after {
+        background-color: $primary-blue;
+        content: '';
+        height: 2px;
+        left: 0;
+        position: absolute;
+        top: 100%;
+        transform: translateY(100%);
+        transition: all .275s ease-in-out;
+        width: 100%;
+      }
+
+      &:hover:after {
+        @include media-query("desktop"){
+          transform: translateY(-2px);
+        }
+      }
     }
   }
 
-  &--primary {
-    background-color: $color-white;
-    border-bottom: 2px solid $primary-blue;
-    padding: 16px 0;
+  &__subitem {
+    padding: 8px 0 0 16px;
+  }
+
+  &__link {
+    color: $primary-blue;
+    font-size: 1.125rem;
+    
+    @include media-query("desktop"){
+      color: $primary-blue--light;
+      font-size: 1rem;
+    }
+
+    .c-navigation--primary & {
+      color: $primary-blue;
+
+      &--active:after {
+        background-color: $primary-blue;
+        content: '';
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 8px;
+        transition: all .275s ease-in-out;
+        width: 4px;
+
+        @include media-query("desktop") {
+          height: 2px;
+          left: 0;
+          top: 100%;
+          transform: translateY(-2px);
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  &--primary {    
+    
+    @include media-query("desktop"){
+      background-color: $color-white;
+      border-bottom: 2px solid $primary-blue;
+      padding: 16px 0;
+    }
   }
 
   &__menu {
+    flex-direction: column;
+
     @include media-query("desktop") {
+      align-items: center;
+      flex-direction: row;
       margin: 0 auto;
       width: 1130px;
+    }
+
+    > li:first-child {
+      @include media-query('desktop', 'max-width'){
+        display: none;
+      }
+    }
+  }
+
+  &__submenu {
+    max-height: 0;
+    transition: all .4s ease-in-out;
+
+    &.is-expanded {
+      height: auto;
+      max-height: 300px;
+    }
+
+  }
+
+  &__toggle {
+    align-items: center;
+    background-color: $primary-blue;
+    border-radius: 4px;
+    color: $primary-blue--light;
+    cursor: pointer;
+    display: flex;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 40px;
+    justify-content: center;
+    padding: 8px;
+    position: fixed;
+    bottom: 16px;
+    width: auto;
+    z-index: 4;
+
+    @include media-query("desktop"){
+      display: none;
+    }
+
+    span {
+      font-family: $primary-font--demiBold;
+    }
+  }
+
+  &__toggle-line {
+    background-color: $primary-blue--light;
+    position:relative;
+    height: 3px;
+    transition: background-color .15s ease-in-out;
+    width: 28px;
+
+    .is-active & {
+      background-color: $primary-blue;
+    }
+
+    &:before,
+    &:after {
+      background-color: $primary-blue--light;
+      content:'';
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: -8px;
+      transition: transform .2s ease-in-out, top .15s ease-in-out .2s;
+      width: 100%;
+
+      .is-active & {
+        top: 0;
+        transform: rotate(-45deg);
+        transition: top .15s linear, transform .2s ease-in-out .15s;
+      }
+    }
+
+    &:after {
+      top: 8px;
+
+      .is-active & {
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  &__toggle-submenu {
+    align-items: center;
+    background-color: $primary-blue--light;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    height: 24px;
+    position: absolute;
+    right: 16px;
+    top: 8px;
+    width: 24px;
+
+    &:before,
+    &:after {
+      background-color: $primary-blue;
+      content: '';
+      height: 3px;
+      position: absolute;
+      transition: opacity .15s linear, transform .2s ease-in-out .1s;
+      width: 16px;
+    }
+
+    &:after {
+      transition: transform .35s ease-in-out;
+      transform: rotate(90deg);
+    }
+
+    &.is-active {
+      &:before {
+        opacity: 0;
+        transform: rotate(-90deg);
+      }
+
+      &:after {
+        transform: rotate(0);
+      }
     }
   }
 }

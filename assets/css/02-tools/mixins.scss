@@ -4,8 +4,18 @@
 
         $breakpoint-value: map-get($breakpoints, $breakpoint);
 
-        @media (#{$range}: $breakpoint-value) {
-            @content;
+        @if (#{$range} == "max-width"){
+
+            @media (#{$range}: ($breakpoint-value - 1px)) {
+                @content;
+            }
+
+        } @else {
+
+            @media (#{$range}: $breakpoint-value) {
+                @content;
+            }
+
         }
 
     } @else {

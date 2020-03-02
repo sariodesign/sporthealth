@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Navigation />
     <MainCategories />
     <Methods />
   </div>
