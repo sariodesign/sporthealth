@@ -37,6 +37,7 @@
 
   &__item {
     margin-right: 24px;
+    position: relative;
 
     @include media-query('desktop', 'max-width'){
       padding: 8px 0 0 16px;
@@ -65,10 +66,27 @@
         }
       }
     }
+
+    @include media-query("desktop") {
+      &:hover {
+        overflow: visible;
+  
+        .c-navigation__submenu {
+          opacity: 1;
+          visibility: visible;
+          z-index: 3;
+        }
+      }
+    }
   }
 
   &__subitem {
     padding: 8px 0 0 16px;
+
+    @include media-query("desktop") {
+      margin-bottom: 8px;
+      padding: 0;
+    }
   }
 
   &__link {
@@ -133,6 +151,25 @@
   &__submenu {
     max-height: 0;
     transition: all .4s ease-in-out;
+
+    @include media-query("desktop") {
+      background-color: $primary-blue;
+      max-height: none;
+      opacity: 0;
+      position: absolute;
+      padding: 8px;
+      left: -100%;
+      top: 32px;
+      visibility: hidden;
+      width: 200px;
+
+      .c-navigation--primary & {
+        background-color: $color-white;
+        left: 0;
+        top: 100%;
+        width: 235px;
+      }
+    }
 
     &.is-expanded {
       height: auto;
@@ -216,6 +253,10 @@
     right: 16px;
     top: 8px;
     width: 24px;
+
+    @include media-query("desktop"){
+      display: none;
+    }
 
     &:before,
     &:after {
