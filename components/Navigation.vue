@@ -6,18 +6,21 @@
     </div>
     <nav class="c-navigation flex" :class="{'is-open' : isOpen }">
       <ul class="c-navigation__contact flex justify-end">
-        <li class="c-navigation__item">
-          <nuxt-link class="c-navigation__link" to="/chi-siamo">Chi siamo</nuxt-link>
-        </li>
-        <li class="c-navigation__item">
-          <nuxt-link class="c-navigation__link" to="/staff">Staff</nuxt-link>
-        </li>
-        <li class="c-navigation__item">
-          <nuxt-link class="c-navigation__link" to="/contatti">Contatti</nuxt-link>
-        </li>
-        <li class="c-navigation__item">
-          <nuxt-link class="c-navigation__link" to="/sedi">Sedi</nuxt-link>
-        </li>
+        <li class="c-navigation__item" v-for="item in items" :key="item.id">
+            <nuxt-link class="c-navigation__link" :to=item.link>
+                {{item.page}}
+            </nuxt-link>
+            <template v-if="item.submenu">
+              <div class="c-navigation__toggle-submenu" v-on:click="openSubmenu($event.target)"></div>
+              <ul class="c-navigation__submenu">
+                <li class="c-navigation__subitem" v-for="subitem in item.submenu" :key="subitem.id">
+                  <nuxt-link class="c-navigation__link" :to=subitem.link>
+                    {{subitem.page}}
+                  </nuxt-link>
+                </li>
+              </ul>
+            </template>
+        </li>        
       </ul>
       <div class="c-navigation--primary">
         <Menu />
@@ -33,6 +36,34 @@ import Menu from '~/components/Menu.vue'
 export default {
   data () {
     return {
+      items: [
+          { 
+            page: 'Chi siamo',
+            link: '/chi-siamo'
+          },
+          { 
+            page: 'Staff',
+            link: '/staff'
+          },
+          { 
+            page: 'Sedi',
+            link: '/sedi',
+            submenu: [
+              {
+                page: 'Centri Sport Health',
+                link: '/centri-sport-health'
+              },
+              {
+                page: 'Sport Health Point',
+                link: '/sport-health-point'
+              }
+            ]
+          },
+          { 
+            page: 'Contatti',
+            link: '/contatti'
+          },
+      ],
       isOpen: false,
       isActive: false
     }
