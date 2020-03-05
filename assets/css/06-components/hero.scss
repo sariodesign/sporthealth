@@ -1,0 +1,27 @@
+.c-hero {
+  position: relative;
+
+  &__content {    
+
+    p {
+      color: $color-white;
+      font-family: $primary-font--demiBold;
+      font-size: 1.25rem;
+      line-height: 2rem;
+      text-shadow: 1px 1px 0 $color-black; 
+      text-transform: uppercase;
+    }
+  }
+
+  &__overlay {
+    left: 0;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  &__logo {
+    margin: 0 auto;
+  }
+}
