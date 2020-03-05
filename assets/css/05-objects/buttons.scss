@@ -5,8 +5,14 @@
   padding: 8px 12px;
 }
 
-.o-button--primary {
+.o-button--hero {
+  background-color: $primary-blue;
+  color: $primary-blue--light
+}
 
+.o-button--hero-alt {
+  background-color: $primary-blue--light;
+  color: $primary-blue
 }
 
 .o-button--secondary {
