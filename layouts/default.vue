@@ -1,10 +1,12 @@
 <template>
   <div>
     <Navigation />
+    <Hero />
     <nuxt />
   </div>
 </template>
 <script>
+
 import Navigation from '~/components/Navigation.vue'
 
 export default {
