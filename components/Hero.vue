@@ -31,12 +31,6 @@
         </section>
     </div>
 </template>
-<template v-else-if="hero === 'full'">
-    <h1>Hero with full width</h1>
-</template>
-<template v-else>
-    <h1>Hero for other page</h1>
-</template>
 <script>
     export default {
         props: {
