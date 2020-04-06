@@ -8,11 +8,13 @@
 <script>
 import Hero from '~/components/Hero.vue'
 import MainCategories from '~/components/MainCategories.vue'
+import Methods from '~/components/Methods.vue'
 
 export default {
   components: {
     Hero,
-    MainCategories
+    MainCategories,
+    Methods
   },
   data(){
     return {
