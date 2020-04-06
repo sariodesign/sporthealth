@@ -2,11 +2,20 @@
   border: 1px solid $primary-blue;
   border-radius: 4px;
   line-height: 1;
+  height: 40px;
   padding: 8px 12px;
 }
 
-.o-button--primary {
+.o-button--hero {
+  background-color: $primary-blue;
+  color: $primary-blue--light;
+  height: 56px;
+}
 
+.o-button--hero-alt {
+  background-color: $primary-blue--light;
+  color: $primary-blue;
+  height: 56px;
 }
 
 .o-button--secondary {

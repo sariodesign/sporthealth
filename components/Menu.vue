@@ -9,7 +9,7 @@
             <nuxt-link class="c-navigation__link" :to=item.link>
                 {{item.page}}
             </nuxt-link>
-            <div v-if="item.submenu">
+            <template v-if="item.submenu">
               <div class="c-navigation__toggle-submenu" v-on:click="openSubmenu($event.target)"></div>
               <ul class="c-navigation__submenu">
                 <li class="c-navigation__subitem" v-for="subitem in item.submenu" :key="subitem.id">
@@ -18,7 +18,7 @@
                   </nuxt-link>
                 </li>
               </ul>
-            </div>
+            </template>
         </li>
     </ul>
 </template>
@@ -73,7 +73,7 @@
           { page: 'Neuromotoria',
             link: 'neuromotoria'},
           { page: 'Consulenze',
-            link: '/consulenze',
+            link: '/medici-e-centri-collegati',
             submenu: [
               {
                 page: 'Medici e Centri Collegati',

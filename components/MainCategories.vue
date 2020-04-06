@@ -1,6 +1,6 @@
 <template>
   <section class="c-categories">
-    <h1 class="o-heading text-center uppercase">Sport Health: fisioterapia e riatletizzazione a Roma e fuori città</h1>
+    <h1 class="o-heading text-center uppercase py-4">Sport Health: fisioterapia e riatletizzazione a Roma e fuori città</h1>
     <div class="c-categories__group">
       <div v-for="category in categories" :key="category.id" class="c-categories__item">
         <div class="c-categories__content">

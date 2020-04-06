@@ -1,0 +1,56 @@
+.c-hero {
+  height: 80vh;
+  overflow: hidden;
+  position: relative;
+
+  &__content {    
+    color: $color-white;
+    font-family: $primary-font--bold;
+    font-size: 1.25rem;
+    line-height: 2rem;
+    text-shadow: 1px 1px 0 $color-black; 
+    text-transform: uppercase;
+
+    span {
+      font-size: 1rem;
+      font-style: italic;
+    }
+  }
+
+  &__video {
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+  }
+
+  &__overlay {
+    left: 0;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  &__logo {
+    margin: 0 auto;
+  }
+
+  &__cta {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    @include media-query("desktop"){
+      flex-direction: row;
+    }
+  }
+
+  &__cta-item {
+    width: 300px;
+
+    @include media-query("desktop"){
+      width: auto;
+    }
+  }
+}
