@@ -19,4 +19,5 @@ export default {
       typeHero: 'homepage'
     }
   }
+}
 </script>
